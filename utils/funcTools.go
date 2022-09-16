@@ -1,4 +1,4 @@
-package funky_go
+package utils
 
 // Instantiates new array and executes a shallow comparison internally to determine if the new array contains the
 // element and appends the item if not.

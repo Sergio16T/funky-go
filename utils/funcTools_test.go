@@ -1,4 +1,4 @@
-package funky_go
+package utils
 
 import (
 	"github.com/stretchr/testify/assert"

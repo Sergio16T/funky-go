@@ -1,6 +1,6 @@
 package utils
 
-// RemoveDuplicates Instantiates new array and executes a shallow comparison internally to determine if the new array contains the
+// RemoveDuplicates instantiates a new array and executes a shallow comparison internally to determine if the new array contains the
 // element and appends the item if not.
 // Returns a new array with duplicates removed.
 func RemoveDuplicates[T comparable](list []T) []T {
@@ -15,6 +15,8 @@ func RemoveDuplicates[T comparable](list []T) []T {
 	return uniqueList
 }
 
+// Contains iterates through the provided array and does a shallow comparison to determine if the array contains
+// the element.
 func Contains[T comparable](list []T, element T) bool {
 	for i := range list {
 		s := list[i]
@@ -25,7 +27,7 @@ func Contains[T comparable](list []T, element T) bool {
 	return false
 }
 
-// Reduce Executes a user-supplied "reducer" callback function on each element of the source array, in order,
+// Reduce executes a user-supplied "reducer" callback function on each element of the source array, in order,
 // passing in the return value from the calculation on the preceding element.
 // The final result of running the reducer across all elements of the array is a single value.
 //

@@ -11,7 +11,7 @@ The funky-go module is for higher-order functions and declarative helper functio
 ## Installation
 
 ```
-go get github.com/Sergio16T/funky_go v0.1.2-beta
+go get github.com/Sergio16T/funky_go v0.1.3-beta
 ```
 ## Table of Contents
 

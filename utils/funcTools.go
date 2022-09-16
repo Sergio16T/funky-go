@@ -3,11 +3,11 @@ package utils
 // Instantiates new array and executes a shallow comparison internally to determine if the new array contains the
 // element and appends the item if not.
 // Returns a new array with duplicates removed.
-func removeDuplicates[T comparable](list []T) []T {
+func RemoveDuplicates[T comparable](list []T) []T {
 	var uniqueList []T
 	for i := range list {
 		s := list[i]
-		if !contains(uniqueList, s) {
+		if !Contains(uniqueList, s) {
 			uniqueList = append(uniqueList, s)
 		}
 	}
@@ -15,7 +15,7 @@ func removeDuplicates[T comparable](list []T) []T {
 	return uniqueList
 }
 
-func contains[T comparable](list []T, element T) bool {
+func Contains[T comparable](list []T, element T) bool {
 	for i := range list {
 		s := list[i]
 		if s == element {
@@ -39,7 +39,7 @@ func contains[T comparable](list []T, element T) bool {
 // the callback is called.
 //
 // Return value - The value that results from running the "reducer" callback function to completion over the entire array.
-func reduce[T, A any](source []T, f func(A, T) A, initialValue A) A {
+func Reduce[T, A any](source []T, f func(A, T) A, initialValue A) A {
 	acc := initialValue
 	for _, v := range source {
 		acc = f(acc, v)
@@ -53,7 +53,7 @@ func reduce[T, A any](source []T, f func(A, T) A, initialValue A) A {
 // @Param source - source array upon which filter will traverse.
 // Param f - filter function is a predicate, to test each element of the array and return a bool
 // Return value - Array of elements from the given array that passed the test provided by the test function
-func filter[T any, I int, B bool](source []T, f func(T, I) B) []T {
+func Filter[T any, I int, B bool](source []T, f func(T, I) B) []T {
 	var filtered []T
 	for i, v := range source {
 		pass := f(v, I(i))

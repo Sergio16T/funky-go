@@ -1,4 +1,4 @@
-module github.com/Sergio16T/funky_go
+module github.com/Sergio16T/funky-go
 
 go 1.18
 

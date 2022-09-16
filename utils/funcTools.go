@@ -53,7 +53,9 @@ func Reduce[T, A any](source []T, f func(A, T) A, initialValue A) A {
 // from the given array that pass the test implemented by the provided function.
 //
 // @Param source - source array upon which filter will traverse.
+//
 // Param f - filter function is a predicate, to test each element of the array and return a bool
+//
 // Return value - Array of elements from the given array that passed the test provided by the test function
 func Filter[T any, I int, B bool](source []T, f func(T, I) B) []T {
 	var filtered []T

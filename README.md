@@ -3,7 +3,18 @@
     <h4>
     A Functional Programming package for Go development
     </h4>
-    <img src="./go-pilot.svg" width="500px">
+    <p>
+        <a href="https://pkg.go.dev/github.com/gabriel-vasile/mimetype">
+            <img alt="Go Reference" src="https://pkg.go.dev/badge/github.com/gabriel-vasile/mimetype.svg">
+        </a>
+        <a href="https://goreportcard.com/report/github.com/Sergio16T/funky_go">
+            <img alt="go report A+" src="https://goreportcard.com/badge/github.com/Sergio16T/funky_go"/>
+        </a>
+        <a href="LICENSE">
+            <img alt="License" src="https://img.shields.io/badge/License-MIT-green.svg">
+        </a>
+    </p>
+    <img src="./go-pilot.svg" width="500px" style="margin-top: -60px">
 </div>
 
 

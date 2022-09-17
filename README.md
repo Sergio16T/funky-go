@@ -4,7 +4,7 @@
     A Functional Programming package for Go development
     </h4>
     <p>
-        <a href="https://pkg.go.dev/github.com/gabriel-vasile/mimetype">
+        <a href="https://pkg.go.dev/github.com/Sergio16T/funky_go">
             <img alt="Go Reference" src="https://pkg.go.dev/badge/github.com/gabriel-vasile/mimetype.svg">
         </a>
         <a href="https://goreportcard.com/report/github.com/Sergio16T/funky_go">

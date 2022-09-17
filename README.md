@@ -15,7 +15,7 @@ Declarative utility Functions.
 ## Installation
 
 ```
-go get github.com/Sergio16T/funky_go v0.1.5-beta
+go get github.com/Sergio16T/funky_go@v0.1.5-beta
 ```
 ## Table of Contents
 

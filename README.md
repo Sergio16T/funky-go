@@ -1,17 +1,21 @@
 <div align="center">
     <h1>Funky Go</h1>
+    <h4>
+    A Functional Programming package for Go development
+    </h4>
     <img src="./go-pilot.svg" width="500px">
 </div>
 
 
 ## Summary
-The funky-go module is for higher-order functions and declarative helper functions that encapsulate helpful logic.
+Funky Go includes Higher Order Functions in addition to other 
+Declarative utility Functions.
 
 
 ## Installation
 
 ```
-go get github.com/Sergio16T/funky_go v0.1.3-beta
+go get github.com/Sergio16T/funky_go v0.1.5-beta
 ```
 ## Table of Contents
 
@@ -38,8 +42,8 @@ reduced := reduce(sourceArray, func(previousValue []int, element int) []int {
 Filter list of Disney characters to characters 30 or younger
 ```go
 type TestPerson struct {
-name string
-age  int
+    name string
+    age  int
 }
 
 sourceArray := []TestPerson{{name: "Mickey", age: 30}, {name: "Minnie", age: 27}, {name: "Goofy", age: 22}, {name: "Donald", age: 32}}

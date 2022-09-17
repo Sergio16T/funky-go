@@ -54,7 +54,7 @@ func Reduce[T, A any](source []T, f func(A, T) A, initialValue A) A {
 //
 // @Param source - source array upon which filter will traverse.
 //
-// Param f - filter function is a predicate, to test each element of the array and return a bool
+// @Param f - filter function is a predicate, to test each element of the array and return a bool
 //
 // Return value - Array of elements from the given array that passed the test provided by the test function
 func Filter[T any, I int, B bool](source []T, f func(T, I) B) []T {
@@ -67,3 +67,73 @@ func Filter[T any, I int, B bool](source []T, f func(T, I) B) []T {
 	}
 	return filtered
 }
+
+// Map creates a new array populated with the results of calling a provided function on every element in the
+// source array.
+//
+// @Param source - source array upon which map will traverse.
+//
+// @Param f - callback fn that takes the element in the current iteration and the index and appends the result of
+// the function to a new array
+//
+// Return value - array of results populated by executing the callBack fn on each element of the given array
+func Map[T, U any, I int](source []T, f func(T, I) U) []U {
+	var mapped []U
+	for i, v := range source {
+		returnVal := f(v, I(i))
+		mapped = append(mapped, returnVal)
+	}
+	return mapped
+}
+
+// ForEach iterates over the given array and executes a given callBack on each element of the source array
+//
+// @Param source - source array upon which forEach will traverse.
+//
+// @Param f - callback fn
+func ForEach[T any, I int](source []T, f func(T, I)) {
+	for i, v := range source {
+		f(v, I(i))
+	}
+}
+
+// Find returns the memory address of the first element in the provided array that satisfies the provided testing function.
+// As well as the index of the element.
+//
+// If none of the elements satisfy the provided testing function, a nil pointer is returned with -1 for the index
+//
+// @Param source - source array upon which Find will traverse.
+//
+// @Param f - callBack fn(element, index) is a predicate to execute on each value in the array
+//
+// Return value - 2 values are returned.
+// The first value is the memory address of the first element that passes the provided testing fn.(nil pointer if no match is found.)
+// Note: Dereference the pointer to retrieve the value
+// The Second Value is the index at which it was found (-1 if not found)
+func Find[T any, B bool, I int](source []T, f func(T, I) B) (*T, I) {
+	for i, v := range source {
+		pass := f(v, I(i))
+		if pass {
+			return &v, I(i)
+		}
+	}
+	var noMatch *T
+	return noMatch, -1
+}
+
+// @Todo
+//func IndexOf() {
+//
+//}
+//
+//func FindIndex() {
+//
+//}
+//
+//func Every() {
+//
+//}
+//
+//func Some() {
+//
+//}

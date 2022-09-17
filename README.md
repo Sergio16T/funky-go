@@ -106,7 +106,7 @@ type TestPerson struct {
 
 sampleList := []TestPerson{{name: "Mickey", age: 30}, {name: "Minnie", age: 27}, {name: "Goofy", age: 22}, {name: "Donald", age: 32}}
 
-ForEach(sampleList, func(person TestPerson, index int) {
+utils.ForEach(sampleList, func(person TestPerson, index int) {
     sampleList[index].age = person.age + 5
 })
 
@@ -124,7 +124,7 @@ type TestPerson struct {
 sampleList := []TestPerson{{name: "Mickey", age: 30}, {name: "Minnie", age: 27}, {name: "Goofy", age: 22}, {name: "Donald", age: 32}}
 
 
-mapped := Map(sampleList, func(person TestPerson, index int) int {
+mapped := utils.Map(sampleList, func(person TestPerson, index int) int {
     agePlusFive := person.age + 5
     return agePlusFive
 })

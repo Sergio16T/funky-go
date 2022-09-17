@@ -35,7 +35,7 @@ go get github.com/Sergio16T/funky_go@v0.1.5-beta
 
 ## Examples
 
-Using reduce to remove duplicates
+Reduce the given source array to a new array with duplicates removed
 ```go
 sourceArray := []int{1, 1, 2, 3, 4, 5, 4}
 var initialValue []int
@@ -65,4 +65,24 @@ filtered := utils.Filter(sourceArray, func(person TestPerson, index int) bool {
 
 // filtered ~ []TestPerson{{name: "Mickey", age: 30}, {name: "Minnie", age: 27}, {name: "Goofy", age: 22}}
 
+```
+
+Find the first value that passes the given predicate. 
+
+Returns a pointer and the index of value in the given array
+(Nil pointer, index -1 if not found).
+```go
+sampleList := []int{1, 2, 3, 4, 5}
+
+found, i := utils.Find(sampleList, func(num int, index int) bool {
+    return num == 2
+})
+
+// found ~ *int((*int)(0xc00001aba8))
+// i ~ 1
+if i == -1 {
+    log.Printf("No match was found")
+} else {
+    log.Printf("Match %+v found at index %+v\n", *found, i)
+}
 ```

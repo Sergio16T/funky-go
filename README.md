@@ -26,7 +26,7 @@ Declarative utility Functions.
 ## Installation
 
 ```
-go get github.com/Sergio16T/funky_go@v0.1.5-beta
+go get github.com/Sergio16T/funky_go@v0.1.6-beta
 ```
 ## Table of Contents
 
@@ -85,4 +85,14 @@ if i == -1 {
 } else {
     log.Printf("Match %+v found at index %+v\n", *found, i)
 }
+```
+FindIndex of the first value in the array that passes the given predicate
+```go
+sampleList := []int{1, 2, 3, 4, 5}
+
+index := utils.FindIndex(sampleList, func(num int, index int) bool {
+    return num == 2
+})
+
+// index ~ 1
 ```

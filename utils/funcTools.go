@@ -117,6 +117,24 @@ func Find[T any, B bool, I int](source []T, f func(T, I) B) (*T, I) {
 	return noMatch, -1
 }
 
+// FindIndex returns the index of the first element in an array that satisfies the provided testing function.
+// If no elements satisfy the testing function, -1 is returned.
+//
+// @Param source - source array upon which Find will traverse.
+//
+// @Param f - callBack fn(element, index) is a predicate to execute on each value in the array
+//
+// Return value - index of first value in the given array that satisfies the provided predicate or -1 if not found
+func FindIndex[T any, B bool, I int](source []T, f func(T, I) B) I {
+	for i, v := range source {
+		pass := f(v, I(i))
+		if pass {
+			return I(i)
+		}
+	}
+	return -1
+}
+
 // @Todo
 //func IndexOf() {
 //

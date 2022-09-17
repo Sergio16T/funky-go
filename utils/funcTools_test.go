@@ -111,3 +111,21 @@ func TestFind(t *testing.T) {
 	assert.Equal(t, expected2, *found)
 
 }
+
+func TestFindIndex(t *testing.T) {
+	//FindIndex
+	sampleList := []TestPerson{{name: "Mickey", age: 30}, {name: "Minnie", age: 27}, {name: "Goofy", age: 22}, {name: "Donald", age: 32}}
+	expected := 2
+
+	index := FindIndex(sampleList, func(person TestPerson, index int) bool {
+		return person.name == "Goofy" && person.age == 22
+	})
+
+	assert.Equal(t, expected, index)
+
+	indexNotFound := FindIndex(sampleList, func(person TestPerson, index int) bool {
+		return person.name == "Goofy" && person.age == 28
+	})
+
+	assert.Equal(t, -1, indexNotFound)
+}

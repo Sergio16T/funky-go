@@ -99,7 +99,6 @@ func ForEach[T any, I int](source []T, f func(T, I)) {
 
 // Find returns the memory address of the first element in the provided array that satisfies the provided testing function.
 // As well as the index of the element.
-//
 // If none of the elements satisfy the provided testing function, a nil pointer is returned with -1 for the index
 //
 // @Param source - source array upon which Find will traverse.

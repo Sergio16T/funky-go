@@ -14,7 +14,7 @@
             <img alt="License" src="https://img.shields.io/badge/License-MIT-green.svg">
         </a>
     </p>
-    <img src="./go-pilot.svg" width="500px" style="margin-top: -60px">
+Ø    <img alt="Go Pilot" src="./go-pilot.svg" width="500px" style="margin-top: -60px">
 </div>
 
 

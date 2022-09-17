@@ -105,12 +105,8 @@ func ForEach[T any, I int](source []T, f func(T, I)) {
 //
 // @Param f - callBack fn(element, index) is a predicate to execute on each value in the array
 //
-// Return value - 2 values are returned.
-//
-// The first value is the memory address of the first element that passes the provided testing fn (nil pointer if no match is found).
-// Note: Dereference the pointer to retrieve the value.
-//
-// The Second Value is the index at which it was found (-1 if not found)
+// Return value - Returns a pointer and the index of first value in the given array that satisfies the provided predicate
+// (Nil pointer, index -1 if not found).
 func Find[T any, B bool, I int](source []T, f func(T, I) B) (*T, I) {
 	for i, v := range source {
 		pass := f(v, I(i))

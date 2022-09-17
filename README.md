@@ -40,8 +40,8 @@ Using reduce to remove duplicates
 sourceArray := []int{1, 1, 2, 3, 4, 5, 4}
 var initialValue []int
 
-reduced := reduce(sourceArray, func(previousValue []int, element int) []int {
-		if !contains(previousValue, element) {
+reduced := utils.Reduce(sourceArray, func(previousValue []int, element int) []int {
+		if !utils.Contains(previousValue, element) {
 			previousValue = append(previousValue, element)
 		}
 		return previousValue
@@ -59,7 +59,7 @@ type TestPerson struct {
 
 sourceArray := []TestPerson{{name: "Mickey", age: 30}, {name: "Minnie", age: 27}, {name: "Goofy", age: 22}, {name: "Donald", age: 32}}
 
-filtered := filter(sourceArray, func(person TestPerson, index int) bool {
+filtered := utils.Filter(sourceArray, func(person TestPerson, index int) bool {
     return person.age <= 30
 })
 

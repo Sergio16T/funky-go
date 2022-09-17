@@ -96,3 +96,38 @@ index := utils.FindIndex(sampleList, func(num int, index int) bool {
 
 // index ~ 1
 ```
+
+ForEach person in the list add 5 years to their age
+```go
+type TestPerson struct {
+    name string
+    age  int
+}
+
+sampleList := []TestPerson{{name: "Mickey", age: 30}, {name: "Minnie", age: 27}, {name: "Goofy", age: 22}, {name: "Donald", age: 32}}
+
+ForEach(sampleList, func(person TestPerson, index int) {
+    sampleList[index].age = person.age + 5
+})
+
+// sampleList ~ []TestPerson{{name: "Mickey", age: 35}, {name: "Minnie", age: 32}, {name: "Goofy", age: 27}, {name: "Donald", age: 37}}
+
+```
+
+Map over each person in the list and return a new list containing the ages of all the characters + 5
+```go
+type TestPerson struct {
+    name string
+    age  int
+}
+
+sampleList := []TestPerson{{name: "Mickey", age: 30}, {name: "Minnie", age: 27}, {name: "Goofy", age: 22}, {name: "Donald", age: 32}}
+
+
+mapped := Map(sampleList, func(person TestPerson, index int) int {
+    agePlusFive := person.age + 5
+    return agePlusFive
+})
+
+// mapped ~  []int{35, 32, 27, 37}
+```

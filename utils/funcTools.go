@@ -1,5 +1,7 @@
 package utils
 
+// Utilities for Arrays & Slices
+
 // RemoveDuplicates instantiates a new array and executes a shallow comparison internally to determine if the new array contains the
 // element and appends the item if not.
 // Returns a new array with duplicates removed.

@@ -36,7 +36,7 @@ go get github.com/Sergio16T/funky_go@v0.1.6-beta
 
 ## Examples
 
-Reduce the given source array/slice to a new array/slice with duplicates removed
+Reduce the given source array to a new array with duplicates removed
 ```go
 sourceArray := []int{1, 1, 2, 3, 4, 5, 4}
 var initialValue []int
@@ -70,7 +70,7 @@ filtered := utils.Filter(sourceArray, func(person TestPerson, index int) bool {
 
 Find the first value that passes the given predicate. 
 
-Returns a pointer and the index of value in the given array/slice
+Returns a pointer and the index of value in the given array
 (Nil pointer, index -1 if not found).
 ```go
 sampleList := []int{1, 2, 3, 4, 5}
@@ -87,7 +87,7 @@ if i == -1 {
     log.Printf("Match %+v found at index %+v\n", *found, i)
 }
 ```
-FindIndex of the first value in the array/slice that passes the given predicate
+FindIndex of the first value in the array that passes the given predicate
 ```go
 sampleList := []int{1, 2, 3, 4, 5}
 

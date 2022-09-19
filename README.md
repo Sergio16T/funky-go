@@ -27,7 +27,7 @@ for working with slices & arrays in Go.
 ## Installation
 
 ```
-go get github.com/Sergio16T/funky_go@v0.1.6-beta
+go get github.com/Sergio16T/funky_go@v0.1.7-beta
 ```
 ## Table of Contents
 
@@ -68,36 +68,6 @@ filtered := utils.Filter(sourceArray, func(person TestPerson, index int) bool {
 
 ```
 
-Find the first value that passes the given predicate. 
-
-Returns a pointer and the index of value in the given array
-(Nil pointer, index -1 if not found).
-```go
-sampleList := []int{1, 2, 3, 4, 5}
-
-found, i := utils.Find(sampleList, func(num int, index int) bool {
-    return num == 2
-})
-
-// found ~ *int((*int)(0xc00001aba8))
-// i ~ 1
-if i == -1 {
-    log.Printf("No match was found")
-} else {
-    log.Printf("Match %+v found at index %+v\n", *found, i)
-}
-```
-FindIndex of the first value in the array that passes the given predicate
-```go
-sampleList := []int{1, 2, 3, 4, 5}
-
-index := utils.FindIndex(sampleList, func(num int, index int) bool {
-    return num == 2
-})
-
-// index ~ 1
-```
-
 ForEach person in the list add 5 years to their age
 ```go
 type TestPerson struct {
@@ -131,4 +101,43 @@ mapped := utils.Map(sampleList, func(person TestPerson, index int) int {
 })
 
 // mapped ~  []int{35, 32, 27, 37}
+```
+
+Find the first value that passes the given predicate.
+
+Returns a pointer and the index of value in the given array
+(Nil pointer, index -1 if not found).
+```go
+sampleList := []int{1, 2, 3, 4, 5}
+
+found, i := utils.Find(sampleList, func(num int, index int) bool {
+    return num == 2
+})
+
+// found ~ *int((*int)(0xc00001aba8))
+// i ~ 1
+if i == -1 {
+    log.Printf("No match was found")
+} else {
+    log.Printf("Match %+v found at index %+v\n", *found, i)
+}
+```
+
+FindIndex of the first value in the array that passes the given predicate
+```go
+sampleList := []int{1, 2, 3, 4, 5}
+
+index := utils.FindIndex(sampleList, func(num int, index int) bool {
+    return num == 2
+})
+
+// index ~ 1
+```
+
+Find Index Of Element in Source Array
+```go
+sampleList := []int{1, 2, 3, 4, 11, 5, 1, 2, 3, 2, 1, 0, 9}
+
+index := IndexOf(sampleList, 11)
+// index ~ 4
 ```

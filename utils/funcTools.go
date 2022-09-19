@@ -2,33 +2,6 @@ package utils
 
 // Utilities for Arrays & Slices
 
-// RemoveDuplicates instantiates a new array and executes a shallow comparison internally to determine if the new array contains the
-// element and appends the item if not.
-// Returns a new array with duplicates removed.
-func RemoveDuplicates[T comparable](list []T) []T {
-	var uniqueList []T
-	for i := range list {
-		s := list[i]
-		if !Contains(uniqueList, s) {
-			uniqueList = append(uniqueList, s)
-		}
-	}
-
-	return uniqueList
-}
-
-// Contains iterates through the provided array and does a shallow comparison to determine if the array contains
-// the element.
-func Contains[T comparable](list []T, element T) bool {
-	for i := range list {
-		s := list[i]
-		if s == element {
-			return true
-		}
-	}
-	return false
-}
-
 // Reduce executes a user-supplied "reducer" callback function on each element of the source array, in order,
 // passing in the return value from the calculation on the preceding element.
 // The final result of running the reducer across all elements of the array is a single value.
@@ -56,9 +29,9 @@ func Reduce[T, A any](source []T, f func(A, T) A, initialValue A) A {
 //
 // @Param source - source array upon which filter will traverse.
 //
-// @Param f - filter function is a predicate, to test each element of the array and return a bool
+// @Param f - filter function is a predicate, to test each element of the array and return a bool.
 //
-// Return value - Array of elements from the given array that passed the test provided by the test function
+// Return value - Array of elements from the given array that passed the test provided by the test function.
 func Filter[T any, I int, B bool](source []T, f func(T, I) B) []T {
 	var filtered []T
 	for i, v := range source {
@@ -76,9 +49,9 @@ func Filter[T any, I int, B bool](source []T, f func(T, I) B) []T {
 // @Param source - source array upon which map will traverse.
 //
 // @Param f - callback fn that takes the element in the current iteration and the index and appends the result of
-// the function to a new array
+// the function to a new array.
 //
-// Return value - array of results populated by executing the callBack fn on each element of the given array
+// Return value - array of results populated by executing the callBack fn on each element of the given array.
 func Map[T, U any, I int](source []T, f func(T, I) U) []U {
 	var mapped []U
 	for i, v := range source {
@@ -88,11 +61,11 @@ func Map[T, U any, I int](source []T, f func(T, I) U) []U {
 	return mapped
 }
 
-// ForEach iterates over the given array and executes a given callBack on each element of the source array
+// ForEach iterates over the given array and executes a given callBack on each element of the source array.
 //
 // @Param source - source array upon which forEach will traverse.
 //
-// @Param f - callback fn
+// @Param f - callback fn.
 func ForEach[T any, I int](source []T, f func(T, I)) {
 	for i, v := range source {
 		f(v, I(i))
@@ -104,7 +77,7 @@ func ForEach[T any, I int](source []T, f func(T, I)) {
 //
 // @Param source - source array upon which Find will traverse.
 //
-// @Param f - callBack fn(element, index) is a predicate to execute on each value in the array
+// @Param f - callBack fn(element, index) is a predicate to execute on each value in the array.
 //
 // Return value - Returns a pointer and the index of first value in the given array that satisfies the provided predicate
 // (Nil pointer, index -1 if not found).
@@ -124,9 +97,9 @@ func Find[T any, B bool, I int](source []T, f func(T, I) B) (*T, I) {
 //
 // @Param source - source array upon which FindIndex will traverse.
 //
-// @Param f - callBack fn(element, index) is a predicate to execute on each value in the array
+// @Param f - callBack fn(element, index) is a predicate to execute on each value in the array.
 //
-// Return value - index of first value in the given array that satisfies the provided predicate or -1 if not found
+// Return value - index of first value in the given array that satisfies the provided predicate or -1 if not found.
 func FindIndex[T any, B bool, I int](source []T, f func(T, I) B) I {
 	for i, v := range source {
 		pass := f(v, I(i))
@@ -137,15 +110,29 @@ func FindIndex[T any, B bool, I int](source []T, f func(T, I) B) I {
 	return -1
 }
 
+// IndexOf returns the first index at which a given element can be found in the array, or -1 if it is not present.
+//
+// @Param source - source array to traverse.
+//
+// @Param element - element to search for.
+//
+// Return value - first index at which the element can be found. -1 if not present.
+func IndexOf[T comparable, I int](source []T, element T) I {
+	for i, v := range source {
+		if element == v {
+			return I(i)
+		}
+	}
+	return -1
+}
+
+// Contains iterates through the provided array and does a shallow comparison to determine if the array contains
+// the element.
+func Contains[T comparable](list []T, element T) bool {
+	return IndexOf(list, element) >= 0
+}
+
 // @Todo
-//func IndexOf() {
-//
-//}
-//
-//func FindIndex() {
-//
-//}
-//
 //func Every() {
 //
 //}
@@ -153,3 +140,18 @@ func FindIndex[T any, B bool, I int](source []T, f func(T, I) B) I {
 //func Some() {
 //
 //}
+
+// RemoveDuplicates instantiates a new array and executes a shallow comparison internally to determine if the new array contains the
+// element and appends the item if not.
+// Returns a new array with duplicates removed.
+func RemoveDuplicates[T comparable](list []T) []T {
+	var uniqueList []T
+	for i := range list {
+		s := list[i]
+		if !Contains(uniqueList, s) {
+			uniqueList = append(uniqueList, s)
+		}
+	}
+
+	return uniqueList
+}

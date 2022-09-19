@@ -129,3 +129,14 @@ func TestFindIndex(t *testing.T) {
 
 	assert.Equal(t, -1, indexNotFound)
 }
+
+func TestIndexOf(t *testing.T) {
+	sampleList := []int{1, 2, 3, 4, 11, 5, 1, 2, 3, 2, 1, 0, 9}
+	expected := 4
+
+	index := IndexOf(sampleList, 11)
+	assert.Equal(t, expected, index)
+
+	notFound := IndexOf(sampleList, 12)
+	assert.Equal(t, -1, notFound)
+}

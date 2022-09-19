@@ -138,6 +138,6 @@ Find Index Of Element in Source Array
 ```go
 sampleList := []int{1, 2, 3, 4, 11, 5, 1, 2, 3, 2, 1, 0, 9}
 
-index := IndexOf(sampleList, 11)
+index := utils.IndexOf(sampleList, 11)
 // index ~ 4
 ```

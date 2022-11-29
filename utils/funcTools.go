@@ -144,14 +144,14 @@ func Contains[T comparable](list []T, element T) bool {
 // RemoveDuplicates instantiates a new array and executes a shallow comparison internally to determine if the new array contains the
 // element and appends the item if not.
 // Returns a new array with duplicates removed.
-func RemoveDuplicates[T comparable](list []T) []T {
-	var uniqueList []T
-	for i := range list {
-		s := list[i]
-		if !Contains(uniqueList, s) {
-			uniqueList = append(uniqueList, s)
-		}
-	}
-
-	return uniqueList
-}
+//func RemoveDuplicates[T comparable](list []T) []T {
+//	var uniqueList []T
+//	for i := range list {
+//		s := list[i]
+//		if !Contains(uniqueList, s) {
+//			uniqueList = append(uniqueList, s)
+//		}
+//	}
+//
+//	return uniqueList
+//}

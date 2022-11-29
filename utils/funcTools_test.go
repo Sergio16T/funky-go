@@ -42,12 +42,12 @@ func TestReducer(t *testing.T) {
 
 }
 
-func TestRemoveDuplicates(t *testing.T) {
-	test := []int{1, 1, 2, 3, 4, 5, 4}
-	expected := []int{1, 2, 3, 4, 5}
-
-	assert.Equal(t, expected, RemoveDuplicates(test))
-}
+//func TestRemoveDuplicates(t *testing.T) {
+//	test := []int{1, 1, 2, 3, 4, 5, 4}
+//	expected := []int{1, 2, 3, 4, 5}
+//
+//	assert.Equal(t, expected, RemoveDuplicates(test))
+//}
 
 func TestFilter(t *testing.T) {
 

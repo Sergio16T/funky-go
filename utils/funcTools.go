@@ -72,6 +72,42 @@ func ForEach[T any, I int](source []T, f func(T, I)) {
 	}
 }
 
+// Every iterates through the provided array and determines whether all elements in the array
+// pass the test implemented by the provided function
+//
+// @Param source - source array upon which Every will traverse.
+//
+// @Param f - callback fn is a predicate
+//
+// Return value - boolean
+func Every[T any, I int, B bool](source []T, f func(T, I) B) B {
+	for i, v := range source {
+		passed := f(v, I(i))
+		if !passed {
+			return false
+		}
+	}
+	return true
+}
+
+// Some iterates through the provided array and determines whether 1 of the elements in the array
+// passes the test implemented by the provided function
+//
+// @Param source - source array upon which Some will traverse.
+//
+// @Param f - callback fn is a predicate
+//
+// Return value - boolean
+func Some[T any, I int, B bool](source []T, f func(T, I) B) B {
+	for i, v := range source {
+		passed := f(v, I(i))
+		if passed {
+			return true
+		}
+	}
+	return false
+}
+
 // Find returns a pointer and the index of first value in the given array that satisfies the provided predicate
 // If none of the elements satisfy the provided testing function, a nil pointer is returned with -1 for the index
 //
@@ -131,15 +167,6 @@ func IndexOf[T comparable, I int](source []T, element T) I {
 func Contains[T comparable](list []T, element T) bool {
 	return IndexOf(list, element) >= 0
 }
-
-// @Todo
-//func Every() {
-//
-//}
-//
-//func Some() {
-//
-//}
 
 // RemoveDuplicates instantiates a new array and executes a shallow comparison internally to determine if the new array contains the
 // element and appends the item if not.

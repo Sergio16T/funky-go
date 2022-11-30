@@ -42,13 +42,6 @@ func TestReducer(t *testing.T) {
 
 }
 
-//func TestRemoveDuplicates(t *testing.T) {
-//	test := []int{1, 1, 2, 3, 4, 5, 4}
-//	expected := []int{1, 2, 3, 4, 5}
-//
-//	assert.Equal(t, expected, RemoveDuplicates(test))
-//}
-
 func TestFilter(t *testing.T) {
 
 	sampleList := []TestPerson{{name: "Mickey", age: 30}, {name: "Minnie", age: 27}, {name: "Goofy", age: 22}, {name: "Donald", age: 32}}
@@ -83,6 +76,48 @@ func TestForEach(t *testing.T) {
 		sampleList[index].age = person.age + 5
 	})
 	assert.Equal(t, expected, sampleList)
+}
+
+func TestEvery(t *testing.T) {
+	sampleList := []TestPerson{{name: "Mickey", age: 30}, {name: "Minnie", age: 27}, {name: "Matt", age: 22}}
+
+	firstInitialIsM := Every(sampleList, func(person TestPerson, index int) bool {
+		char := string(person.name[0])
+		return char == "M"
+	})
+
+	firstInitialIsB := Every(sampleList, func(person TestPerson, index int) bool {
+		char := string(person.name[0])
+		return char == "B"
+	})
+
+	youngerThan30 := Every(sampleList, func(person TestPerson, index int) bool {
+		return person.age < 30
+	})
+
+	thirtyAndYounger := Every(sampleList, func(person TestPerson, index int) bool {
+		return person.age <= 30
+	})
+
+	assert.Equal(t, firstInitialIsM, true)
+	assert.Equal(t, firstInitialIsB, false)
+	assert.Equal(t, youngerThan30, false)
+	assert.Equal(t, thirtyAndYounger, true)
+}
+
+func TestSome(t *testing.T) {
+	sampleList := []TestPerson{{name: "Mickey", age: 30}, {name: "Minnie", age: 27}, {name: "Matt", age: 22}}
+
+	atLeastOneIs30 := Some(sampleList, func(person TestPerson, index int) bool {
+		return person.age == 22
+	})
+
+	atLeastOneIs31 := Some(sampleList, func(person TestPerson, index int) bool {
+		return person.age == 31
+	})
+
+	assert.Equal(t, atLeastOneIs30, true)
+	assert.Equal(t, atLeastOneIs31, false)
 }
 
 func TestFind(t *testing.T) {
@@ -140,3 +175,10 @@ func TestIndexOf(t *testing.T) {
 	notFound := IndexOf(sampleList, 12)
 	assert.Equal(t, -1, notFound)
 }
+
+//func TestRemoveDuplicates(t *testing.T) {
+//	test := []int{1, 1, 2, 3, 4, 5, 4}
+//	expected := []int{1, 2, 3, 4, 5}
+//
+//	assert.Equal(t, expected, RemoveDuplicates(test))
+//}

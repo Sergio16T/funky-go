@@ -27,7 +27,7 @@ for working with slices & arrays in Go.
 ## Installation
 
 ```
-go get github.com/Sergio16T/funky_go@v0.1.7-beta
+go get github.com/Sergio16T/funky_go@v0.1.8-beta
 ```
 ## Table of Contents
 
